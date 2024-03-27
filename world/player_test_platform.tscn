@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqeojclypx40o"]
+[gd_scene load_steps=10 format=3 uid="uid://dqeojclypx40o"]
 
 [ext_resource type="PackedScene" uid="uid://pl42lays1vuw" path="res://entities/player/player.tscn" id="1_36u8i"]
+[ext_resource type="PackedScene" uid="uid://bghob6k801kgm" path="res://world/office_2.tscn" id="2_bbcx4"]
+[ext_resource type="PackedScene" uid="uid://nuo51ppd4w0q" path="res://world/assets/Cube.tscn" id="3_8fios"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cxo2o"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,7 +17,11 @@ sky = SubResource("Sky_siv8i")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxv52"]
+albedo_color = Color(0.686275, 0.698039, 1, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_mcjei"]
+material = SubResource("StandardMaterial3D_wxv52")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d1r37"]
 
@@ -38,5 +44,11 @@ mesh = SubResource("PlaneMesh_mcjei")
 transform = Transform3D(2, 0, 0, 0, 0.001, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_d1r37")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_36u8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88466, 0)
+[node name="Office2" parent="." instance=ExtResource("2_bbcx4")]
+transform = Transform3D(4.10733, 0, 0, 0, 1.28239, 0, 0, 0, 3.72237, 0, 0, -5)
+
+[node name="Player" parent="." instance=ExtResource("1_36u8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.66539, 2.88148)
+
+[node name="Cube" parent="." instance=ExtResource("3_8fios")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.361613, 1.20586, 4.45382)
