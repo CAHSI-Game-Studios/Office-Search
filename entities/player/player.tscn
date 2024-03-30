@@ -26,6 +26,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.342006, 0)
 [node name="CameraPlayer" type="Camera3D" parent="Neck"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
+[node name="RayCast3D" type="RayCast3D" parent="Neck/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -2, 0)
+collision_mask = 2
+
+[node name="Marker3D" type="Marker3D" parent="Neck/CameraPlayer"]
+transform = Transform3D(0.11331, 0, 0, 0, 0.110741, 0, 0, 0, 0.802332, 0, 0, -1.75089)
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Neck/CameraPlayer"]
+node_a = NodePath("../StaticBody3D")
+linear_limit_x/enabled = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Neck/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75044)
+
 [node name="Arm" type="MeshInstance3D" parent="Neck/CameraPlayer"]
 transform = Transform3D(0.11331, 0, 0, 0, 0.110741, 0, 0, 0, 0.802332, 0.224939, -0.328789, -0.17963)
 mesh = SubResource("BoxMesh_ddkgp")
@@ -34,11 +49,3 @@ skeleton = NodePath("../../../MeshBody")
 [node name="Hand" type="MeshInstance3D" parent="Neck/CameraPlayer/Arm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.552306)
 mesh = SubResource("BoxMesh_klhjx")
-
-[node name="Marker3D" type="Marker3D" parent="Neck/CameraPlayer/Arm/Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.207613)
-
-[node name="RayCast3D" type="RayCast3D" parent="Neck"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.856281)
-target_position = Vector3(0, -2, 0)
-collision_mask = 2
