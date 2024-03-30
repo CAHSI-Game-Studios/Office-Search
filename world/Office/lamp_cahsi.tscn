@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqjunp4n34ymi"]
+
+[ext_resource type="PackedScene" uid="uid://c8p2qag4sxp1u" path="res://world/assets/lamp_cahsi.glb" id="1_4aoin"]
+
+[node name="lamp_cahsi" instance=ExtResource("1_4aoin")]
