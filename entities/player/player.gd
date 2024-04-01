@@ -95,6 +95,8 @@ func pick_object():
 	if object_interaction != null and object_interaction is Object_Interact:
 		object_interaction = object_interaction as RigidBody3D
 		picked_object = object_interaction
+		interaction.enabled = false
+		
 		joint.node_b = picked_object.get_path()
 
 func pull_picked_object():
@@ -106,6 +108,8 @@ func pull_picked_object():
 func remove_picked_object():
 	if picked_object != null:
 		picked_object = null
+		interaction.enabled = true
+		
 		joint.node_b = joint.get_path()
 
 func rotate_picked_object(event):
