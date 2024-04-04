@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnjraujpo6aq2"]
-
-[ext_resource type="PackedScene" uid="uid://d3ivprkofi6n0" path="res://world/Office/cup.tscn" id="1_k38mf"]
-[ext_resource type="Script" path="res://world/Findable/findable_object.gd" id="1_qv5ml"]
-
-[node name="Findable_Cup" type="Node3D"]
-script = ExtResource("1_qv5ml")
-
-[node name="cup" parent="." instance=ExtResource("1_k38mf")]
