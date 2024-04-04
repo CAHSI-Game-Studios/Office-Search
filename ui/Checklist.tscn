@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpm7gyckoflee"]
+
+[ext_resource type="Theme" uid="uid://c4oniq1ir51ks" path="res://ui/Theme.tres" id="1_3eotb"]
+[ext_resource type="Script" path="res://ui/Checklist.gd" id="1_77pbb"]
+
+[node name="Checklist" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77pbb")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -185.0
+offset_bottom = 67.0
+grow_horizontal = 0
+theme = ExtResource("1_3eotb")
+theme_override_font_sizes/font_size = 25
+text = "Checklist"
+flat = false
