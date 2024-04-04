@@ -37,9 +37,11 @@ transform = Transform3D(0.11331, 0, 0, 0, 0.110741, 0, 0, 0, 0.802332, 0, 0, -1.
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Neck/CameraPlayer"]
 node_a = NodePath("../StaticBody3D")
 linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Neck/CameraPlayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75108)
 
 [node name="Arm" type="MeshInstance3D" parent="Neck/CameraPlayer"]
 transform = Transform3D(0.11331, 0, 0, 0, 0.110741, 0, 0, 0, 0.802332, 0.224939, -0.328789, -0.17963)
