@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://nuo51ppd4w0q"]
+
+[ext_resource type="Script" path="res://world/interactable/object_interact.gd" id="1_lwmw7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gu0ij"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ivnam"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Cube" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+mass = 5.0
+inertia = Vector3(1, 1, 0)
+script = ExtResource("1_lwmw7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gu0ij")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ivnam")
