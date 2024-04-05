@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://nuo51ppd4w0q"]
 
-[ext_resource type="Script" path="res://world/Office/object_interact.gd" id="1_f3edq"]
+[ext_resource type="Script" path="res://world/interactable/object_interact.gd" id="1_lwmw7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gu0ij"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -13,7 +13,7 @@ collision_layer = 2
 collision_mask = 2
 mass = 5.0
 inertia = Vector3(1, 1, 0)
-script = ExtResource("1_f3edq")
+script = ExtResource("1_lwmw7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_gu0ij")

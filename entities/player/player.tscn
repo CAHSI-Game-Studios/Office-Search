@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://pl42lays1vuw"]
+[gd_scene load_steps=7 format=3 uid="uid://pl42lays1vuw"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_gfo7j"]
+[ext_resource type="Texture2D" uid="uid://domi1ijp7t7t" path="res://ui/crosshair.png" id="2_88bo1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jpfoo"]
 
@@ -13,6 +14,7 @@ size = Vector3(1.44, 1.53, 0.165)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_gfo7j")
+metadata/_edit_vertical_guides_ = [581.0]
 
 [node name="MeshBody" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_jpfoo")
@@ -37,9 +39,11 @@ transform = Transform3D(0.11331, 0, 0, 0, 0.110741, 0, 0, 0, 0.802332, 0, 0, -1.
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Neck/CameraPlayer"]
 node_a = NodePath("../StaticBody3D")
 linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Neck/CameraPlayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75044)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75108)
 
 [node name="Arm" type="MeshInstance3D" parent="Neck/CameraPlayer"]
 transform = Transform3D(0.11331, 0, 0, 0, 0.110741, 0, 0, 0, 0.802332, 0.224939, -0.328789, -0.17963)
@@ -49,3 +53,29 @@ skeleton = NodePath("../../../MeshBody")
 [node name="Hand" type="MeshInstance3D" parent="Neck/CameraPlayer/Arm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.552306)
 mesh = SubResource("BoxMesh_klhjx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -324.0
+offset_right = 575.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 331.0
+offset_right = 610.0
+offset_bottom = 363.0
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("2_88bo1")
+stretch_mode = 2

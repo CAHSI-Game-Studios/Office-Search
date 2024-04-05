@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://qqq6mqvrx02p"]
+
+[ext_resource type="Texture2D" uid="uid://7hfun71vn6l5" path="res://world/findable/assets/ParticleFindableExplosion.png" id="1_sgd8l"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ulrx"]
+emission_shape_scale = Vector3(1.5, 1.5, 1.5)
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkaj5"]
+albedo_texture = ExtResource("1_sgd8l")
+
+[sub_resource type="BoxMesh" id="BoxMesh_n77hr"]
+material = SubResource("StandardMaterial3D_vkaj5")
+size = Vector3(0.01, 0.01, 0.01)
+
+[node name="Particle_Findable" type="GPUParticles3D"]
+emitting = false
+amount = 25
+lifetime = 3.0
+one_shot = true
+speed_scale = 10.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6ulrx")
+draw_pass_1 = SubResource("BoxMesh_n77hr")

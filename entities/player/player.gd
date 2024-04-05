@@ -40,7 +40,7 @@ func _unhandled_input(event):
 		camera_movement(event)
 	
 	if Input.is_action_pressed("l_click"):
-		pick_object()
+		interact_object()
 	else:
 		remove_picked_object()
 	
@@ -88,16 +88,25 @@ func camera_movement(event):
 	camera.rotate_x(-relative_y * sensitivity)
 	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
+func interact_object():
+	var object_interaction = interaction.get_collider()
+	if object_interaction != null:
+		print(object_interaction.name)
+	if object_interaction != null and object_interaction is Object_Interact:
+		pick_object(object_interaction)
+	elif object_interaction != null and object_interaction is Findable_Object:
+		consume_object(object_interaction)
+
+func consume_object(object_interaction:Findable_Object):
+	object_interaction.consume()
 
 # Pick Up and Drop Logic 
-func pick_object():
-	var object_interaction = interaction.get_collider()
-	if object_interaction != null and object_interaction is Object_Interact:
-		object_interaction = object_interaction as RigidBody3D
-		picked_object = object_interaction
-		interaction.enabled = false
+func pick_object(object_interaction:Object_Interact):
+	object_interaction = object_interaction as RigidBody3D
+	picked_object = object_interaction
+	interaction.enabled = false
 		
-		joint.node_b = picked_object.get_path()
+	joint.node_b = picked_object.get_path()
 
 func pull_picked_object():
 	if picked_object != null:
