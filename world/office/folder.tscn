@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://csmucgcieo12v"]
+
+[ext_resource type="PackedScene" uid="uid://k0b6uuonyvtx" path="res://world/assets/folder.glb" id="1_0vfke"]
+
+[node name="folder" instance=ExtResource("1_0vfke")]

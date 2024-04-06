@@ -25,10 +25,13 @@ var pause: bool = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-#
+# Objects Interaction
 var picked_object: RigidBody3D = null
 var rotation_power: float = 0.05
 var locked_rotation : bool = false
+
+# TO DO:
+# Visualizar los objetos que se pueden interactuar. 
 
 
 func _ready():
@@ -43,12 +46,15 @@ func _unhandled_input(event):
 		interact_object()
 	else:
 		remove_picked_object()
-	
+		
 	if Input.is_action_pressed("r_click"):
 		locked_rotation = true
 		rotate_picked_object(event)
 	elif Input.is_action_just_released("r_click"):
 		locked_rotation = false
+	
+	if Input.is_action_just_pressed("pause"):
+		toggle_cursor()
 		
 
 func _physics_process(delta):
@@ -86,7 +92,7 @@ func camera_movement(event):
 		
 	neck.rotate_y(-relative_x * sensitivity)
 	camera.rotate_x(-relative_y * sensitivity)
-	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func interact_object():
 	var object_interaction = interaction.get_collider()
@@ -126,4 +132,9 @@ func rotate_picked_object(event):
 		if event is InputEventMouseMotion:
 			static_body.rotate_x(deg_to_rad(event.relative.y * rotation_power))
 			static_body.rotate_y(deg_to_rad(event.relative.x * rotation_power))
-			
+
+func toggle_cursor():
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
