@@ -4,7 +4,7 @@ extends Node3D
 @onready var check_list = $CheckList
 
 var findables_list:Array = []
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	set_up_findable_objects()
 	
