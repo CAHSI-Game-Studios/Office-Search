@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nrydut0ll0wi"]
+
+[ext_resource type="Script" path="res://world/utils/FindableObjectSpawner.gd" id="1_p0hi1"]
+
+[node name="FindableObjectSpawner" type="Node3D"]
+script = ExtResource("1_p0hi1")
+objectsToBeSpawned = ["cup", "cube"]
