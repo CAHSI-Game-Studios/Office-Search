@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://0mg75llfnvlr"]
+
+[ext_resource type="PackedScene" uid="uid://csg02xlomvep7" path="res://world/assets/deskidk.glb" id="1_0yoog"]
+
+[node name="deskidk" instance=ExtResource("1_0yoog")]

@@ -1,35 +1,32 @@
+class_name  CheckList
 extends Control
 
-var checklist
+@onready var checklist:MenuButton = $MenuButton
+@onready var item_list:ItemList = $ItemList
 var items
-var toggled
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	items = ["item1", "item2", "item3"]
-	checklist = get_node("MenuButton")
-	checklist_setup(items)
-	toggled = checklist.is_pressed()
 
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# check item called in process
 	if Input.is_action_just_pressed("checklist_toggle"):
-		toggled = !toggled
-	checklist.set_pressed_no_signal(toggled)
-	if(checklist.is_pressed()):
-		checklist.show_popup()
-	else:
-		checklist.get_popup().hide()
+		toggle_list()
 
+func toggle_list():
+	if not item_list.visible:
+		item_list.show()
+	else:
+		item_list.hide()
 
 func checklist_setup(itemList):
-	var index = 0
 	for item in itemList:
-		checklist.get_popup().add_check_item(item, index)
-		checklist.get_popup().set_item_disabled(index, true)
-		index+=1
+		item_list.add_item(item)
+	item_list.show()
 
-func check_item(itemIndex):
-	checklist.get_popup().set_item_checked(itemIndex, true)
+func check_item(text):
+	for index in item_list.item_count:
+		if item_list.get_item_text(index) == text:
+			item_list.remove_item(index)
+			break

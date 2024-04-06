@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4jwiyot3j21g"]
+
+[ext_resource type="Script" path="res://world/findable/findable_object.gd" id="1_eqt1t"]
+[ext_resource type="PackedScene" uid="uid://csmucgcieo12v" path="res://world/office/folder.tscn" id="1_rs576"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w75f1"]
+size = Vector3(1.04199, 0.0651398, 1.42749)
+
+[node name="findable_folder" type="StaticBody3D"]
+script = ExtResource("1_eqt1t")
+
+[node name="folder" parent="." instance=ExtResource("1_rs576")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0209961, 0.00759125, 0.010376)
+shape = SubResource("BoxShape3D_w75f1")
