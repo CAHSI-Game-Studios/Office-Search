@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpm7gyckoflee"]
+[gd_scene load_steps=3 format=3 uid="uid://bglli3jprs3s2"]
 
-[ext_resource type="Theme" uid="uid://c4oniq1ir51ks" path="res://ui/Theme.tres" id="1_3eotb"]
+[ext_resource type="Theme" uid="uid://bhkq8dgun6jv0" path="res://ui/Theme.tres" id="1_3eotb"]
 [ext_resource type="Script" path="res://ui/Checklist.gd" id="1_77pbb"]
 
 [node name="Checklist" type="Control"]
