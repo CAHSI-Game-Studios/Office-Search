@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dqjunp4n34ymi" path="res://world/office/lamp_cahsi.tscn" id="4_h53pw"]
 [ext_resource type="PackedScene" uid="uid://nuo51ppd4w0q" path="res://world/interactable/Cube.tscn" id="4_p7wev"]
 [ext_resource type="PackedScene" uid="uid://dqlvfijy1drkl" path="res://world/findable/findable_cup.tscn" id="7_11tu0"]
-[ext_resource type="PackedScene" uid="uid://dhmbbf4nfan7x" path="res://world/findable/findable_book.tscn" id="9_sr0vk"]
-[ext_resource type="PackedScene" uid="uid://b4jwiyot3j21g" path="res://world/findable/findable_folder.tscn" id="10_6my1d"]
+[ext_resource type="PackedScene" path="res://world/findable/findable_book.tscn" id="9_sr0vk"]
+[ext_resource type="PackedScene" path="res://world/findable/findable_folder.tscn" id="10_6my1d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cxo2o"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
