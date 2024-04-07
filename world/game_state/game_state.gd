@@ -1,7 +1,8 @@
 extends Node3D
 
 @onready var findable_objects = $FindableObjects
-@onready var check_list = $CheckList
+@onready var check_list = $UI/CheckList
+
 
 var findables_list:Array = []
 

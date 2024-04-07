@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bglli3jprs3s2"]
+[gd_scene load_steps=4 format=3 uid="uid://br8voh3j5nk4a"]
 
-[ext_resource type="Theme" uid="uid://bhkq8dgun6jv0" path="res://ui/Theme.tres" id="1_3eotb"]
+[ext_resource type="Theme" uid="uid://de07ram6tteqs" path="res://ui/Theme.tres" id="1_3eotb"]
 [ext_resource type="Script" path="res://ui/Checklist.gd" id="1_77pbb"]
 
 [sub_resource type="Theme" id="Theme_cmhuj"]

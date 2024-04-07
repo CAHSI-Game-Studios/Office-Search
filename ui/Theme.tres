@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bhkq8dgun6jv0"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://de07ram6tteqs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cybq8"]
 bg_color = Color(0.275464, 0.604104, 0.322878, 1)
@@ -38,6 +38,8 @@ corner_radius_bottom_left = 10
 
 [resource]
 MenuButton/colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
+MenuButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MenuButton/font_sizes/font_size = 20
 MenuButton/styles/focus = SubResource("StyleBoxFlat_cybq8")
 MenuButton/styles/hover = SubResource("StyleBoxFlat_bg3fi")
 MenuButton/styles/normal = SubResource("StyleBoxFlat_seip0")

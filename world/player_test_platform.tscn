@@ -1,9 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgmxwbuydubbb"]
+[gd_scene load_steps=27 format=3 uid="uid://dgmxwbuydubbb"]
 
 [ext_resource type="PackedScene" uid="uid://pl42lays1vuw" path="res://entities/player/player.tscn" id="1_36u8i"]
 [ext_resource type="Script" path="res://world/game_state/game_state.gd" id="1_40ou0"]
 [ext_resource type="PackedScene" uid="uid://bghob6k801kgm" path="res://world/office/office_2.tscn" id="2_bbcx4"]
-[ext_resource type="PackedScene" uid="uid://bglli3jprs3s2" path="res://ui/Checklist.tscn" id="3_6x76c"]
+[ext_resource type="PackedScene" uid="uid://br8voh3j5nk4a" path="res://ui/Checklist.tscn" id="3_6x76c"]
 [ext_resource type="PackedScene" uid="uid://n0to7nr04bin" path="res://world/office/plant.tscn" id="3_fd8ni"]
 [ext_resource type="PackedScene" uid="uid://r1vdsknyeqnb" path="res://world/office/mouse_cahsi.tscn" id="3_hbwx6"]
 [ext_resource type="PackedScene" uid="uid://dqjunp4n34ymi" path="res://world/office/lamp_cahsi.tscn" id="4_h53pw"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dqlvfijy1drkl" path="res://world/findable/findable_cup.tscn" id="7_11tu0"]
 [ext_resource type="PackedScene" uid="uid://dhmbbf4nfan7x" path="res://world/findable/findable_book.tscn" id="9_sr0vk"]
 [ext_resource type="PackedScene" uid="uid://b4jwiyot3j21g" path="res://world/findable/findable_folder.tscn" id="10_6my1d"]
-[ext_resource type="PackedScene" uid="uid://dpu4iafbkmpmp" path="res://world/assets/start_room.tscn" id="12_uq7tf"]
+[ext_resource type="PackedScene" path="res://world/assets/start_room.tscn" id="12_uq7tf"]
+[ext_resource type="PackedScene" uid="uid://caqiw6g40k3bk" path="res://world/game_state/chronometer.tscn" id="13_xws24"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cxo2o"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -63,12 +64,6 @@ script = ExtResource("1_40ou0")
 
 [node name="Player" parent="." instance=ExtResource("1_36u8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183582, 4.99041, 9.68229)
-
-[node name="CheckList" parent="." instance=ExtResource("3_6x76c")]
-offset_left = -2.0
-offset_top = -3.0
-offset_right = -2.0
-offset_bottom = -3.0
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -217,6 +212,23 @@ skeleton = NodePath("../../Cube")
 
 [node name="start_room" parent="." instance=ExtResource("12_uq7tf")]
 transform = Transform3D(0.0476818, 0, 0.998863, 0, 1, 0, -0.998863, 0, 0.0476818, 0.238012, 0, 9.33711)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.995
+offset_bottom = 0.239929
+mouse_filter = 2
+
+[node name="CheckList" parent="UI" instance=ExtResource("3_6x76c")]
+layout_mode = 1
+offset_left = -2.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = -3.0
+
+[node name="Chronometer" parent="UI" instance=ExtResource("13_xws24")]
+layout_mode = 1
 
 [connection signal="object_consumed" from="FindableObjects/Cup" to="." method="_on_findable_object_consumed"]
 [connection signal="object_consumed" from="FindableObjects/Book" to="." method="_on_findable_object_consumed"]
