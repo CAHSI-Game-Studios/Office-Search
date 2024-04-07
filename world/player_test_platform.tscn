@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgmxwbuydubbb"]
+[gd_scene load_steps=26 format=3 uid="uid://dgmxwbuydubbb"]
 
 [ext_resource type="PackedScene" uid="uid://pl42lays1vuw" path="res://entities/player/player.tscn" id="1_36u8i"]
 [ext_resource type="Script" path="res://world/game_state/game_state.gd" id="1_40ou0"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dqjunp4n34ymi" path="res://world/office/lamp_cahsi.tscn" id="4_h53pw"]
 [ext_resource type="PackedScene" uid="uid://nuo51ppd4w0q" path="res://world/interactable/Cube.tscn" id="4_p7wev"]
 [ext_resource type="PackedScene" uid="uid://dqlvfijy1drkl" path="res://world/findable/findable_cup.tscn" id="7_11tu0"]
-[ext_resource type="PackedScene" path="res://world/findable/findable_book.tscn" id="9_sr0vk"]
-[ext_resource type="PackedScene" path="res://world/findable/findable_folder.tscn" id="10_6my1d"]
+[ext_resource type="PackedScene" uid="uid://dhmbbf4nfan7x" path="res://world/findable/findable_book.tscn" id="9_sr0vk"]
+[ext_resource type="PackedScene" uid="uid://b4jwiyot3j21g" path="res://world/findable/findable_folder.tscn" id="10_6my1d"]
+[ext_resource type="PackedScene" uid="uid://dpu4iafbkmpmp" path="res://world/assets/start_room.tscn" id="12_uq7tf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cxo2o"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,7 +27,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_frj4u"]
-size = Vector3(1, 0.105957, 0.614754)
+size = Vector3(1, 0.105957, 0.489018)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxv52"]
 albedo_color = Color(0.686275, 0.698039, 1, 1)
@@ -61,7 +62,7 @@ size = Vector3(0.5, 0.5, 0.5)
 script = ExtResource("1_40ou0")
 
 [node name="Player" parent="." instance=ExtResource("1_36u8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250901, 4.99041, 3.02344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183582, 4.99041, 9.68229)
 
 [node name="CheckList" parent="." instance=ExtResource("3_6x76c")]
 offset_left = -2.0
@@ -99,6 +100,70 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.45104, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00004, -0.365543, -2.76458, 0.295684)
 shape = SubResource("BoxShape3D_frj4u")
 
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(1.17, 0, 0, 0, -1.22392e-08, -5.7, 0, 0.28, -2.49155e-07, -0.667453, -2.07, 1.47563)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(-1.46799, 0.0146541, -1.30398e-08, 0, -1.22392e-08, -5.7, -0.076934, -0.279616, 2.48813e-07, 0.020506, -2.67669, 4.65417)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(-0.479342, 0.0146541, -1.30398e-08, 0, -1.22392e-08, -5.7, -0.0251213, -0.279616, 2.48813e-07, -0.399179, -2.6767, 3.00424)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(-0.479342, 0.0146541, -1.30398e-08, 0, -1.22392e-08, -5.70001, -0.0251213, -0.279616, 2.48813e-07, 0.583331, -2.6767, 3.00424)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(0.0855693, 0.279616, -2.48813e-07, 0, -1.22392e-08, -5.7, -1.63276, 0.0146541, -1.30398e-08, -0.675272, -2.67669, 3.80994)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(0.0855693, 0.279616, -2.48813e-07, 0, -1.22392e-08, -5.70001, -1.63276, 0.0146541, -1.30398e-08, 0.776234, -2.6767, 3.88747)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(0.06761, 0.19981, -2.48918e-07, 0, -8.74228e-09, -5.7, -1.54852, 0.00872387, -1.0868e-08, 0.347806, -2.6767, 2.27266)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(0.0811208, 0.199726, -2.48813e-07, 0, -8.74228e-09, -5.7, -1.54788, 0.0104672, -1.30398e-08, -0.109474, -2.67671, 2.27148)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(2.75, 0, 0, 0, 0.00420747, -5.69936, 0, 0.279968, 0.085652, 0.128462, -2.07, -1.20339)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(-1.18021e-07, -0.28, 2.49155e-07, 0, -1.22392e-08, -5.7, 2.7, -1.22392e-08, 1.08909e-14, 1.51091, -2.07, 0.13591)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(-1.18021e-07, -0.28, 2.49155e-07, 0, -1.22392e-08, -5.70001, 2.7, -1.22392e-08, 1.08909e-14, -1.25907, -2.07, 0.118776)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(1.1, 0, 0, 0, -1.22392e-08, -5.7, 0, 0.28, -2.49155e-07, 0.954466, -2.07, 1.47684)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00004, -0.0953517, -2.76458, -0.983114)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.00004, 0.0910483, -2.76458, -0.983114)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(0.77, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.082, -2.765, -1.012)
+shape = SubResource("BoxShape3D_frj4u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FixedObjects/Office2/StaticBody3D"]
+transform = Transform3D(-0.0393295, 0, -0.999306, 0, 1, 0, 0.999219, 0, -0.0393325, -1.00102, -2.92599, -0.0733119)
+shape = SubResource("BoxShape3D_frj4u")
+
 [node name="Floor" type="MeshInstance3D" parent="FixedObjects"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("PlaneMesh_mcjei")
@@ -107,7 +172,7 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="FixedObjects/Floor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FixedObjects/Floor/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 0.001, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 0.001, 0, 0, 0, 2, -0.00691712, -0.000244093, 0.00360174)
 shape = SubResource("BoxShape3D_d1r37")
 
 [node name="FindableObjects" type="Node3D" parent="."]
@@ -121,7 +186,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Folder" parent="FindableObjects" instance=ExtResource("10_6my1d")]
-transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0, 1.176, -8.00608)
+transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0, 1.03386, -8.00608)
 collision_layer = 2
 collision_mask = 2
 
@@ -149,6 +214,9 @@ collision_mask = 3
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="InteractableObjects/Cube3"]
 mesh = SubResource("BoxMesh_rohwr")
 skeleton = NodePath("../../Cube")
+
+[node name="start_room" parent="." instance=ExtResource("12_uq7tf")]
+transform = Transform3D(0.0476818, 0, 0.998863, 0, 1, 0, -0.998863, 0, 0.0476818, 0.238012, 0, 9.33711)
 
 [connection signal="object_consumed" from="FindableObjects/Cup" to="." method="_on_findable_object_consumed"]
 [connection signal="object_consumed" from="FindableObjects/Book" to="." method="_on_findable_object_consumed"]
