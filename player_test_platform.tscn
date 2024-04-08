@@ -231,10 +231,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824146, 1.80456, 7.17676)
 pixel_size = 0.004
 text = "W,A,S,D: Movement"
 
-[node name="Jump" type="Label3D" parent="."]
+[node name="Pause-Instruction" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0924397, 1.75986, 5.23928)
 pixel_size = 0.004
-text = "Space: Jump"
+text = "ESC: Pause"
 
 [connection signal="object_consumed" from="FindableObjects/Cup" to="." method="_on_findable_object_consumed"]
 [connection signal="object_consumed" from="FindableObjects/Book" to="." method="_on_findable_object_consumed"]
