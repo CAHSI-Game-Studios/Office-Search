@@ -221,6 +221,21 @@ transform = Transform3D(0.0476818, 0, 0.998863, 0, 1, 0, -0.998863, 0, 0.0476818
 
 [node name="Pause" parent="." instance=ExtResource("13_a7d01")]
 
+[node name="Interact" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288556, 1.43524, 2.83181)
+pixel_size = 0.004
+text = "Left-Click: Interact"
+
+[node name="Movement" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0824146, 1.80456, 7.17676)
+pixel_size = 0.004
+text = "W,A,S,D: Movement"
+
+[node name="Jump" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0924397, 1.75986, 5.23928)
+pixel_size = 0.004
+text = "Space: Jump"
+
 [connection signal="object_consumed" from="FindableObjects/Cup" to="." method="_on_findable_object_consumed"]
 [connection signal="object_consumed" from="FindableObjects/Book" to="." method="_on_findable_object_consumed"]
 [connection signal="object_consumed" from="FindableObjects/Folder" to="." method="_on_findable_object_consumed"]
