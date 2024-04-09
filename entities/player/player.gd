@@ -55,7 +55,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	jump(delta)
 	movement(delta)
-	
+	highlight_interactable_object()
 	pull_picked_object()
 	
 	move_and_slide()
@@ -127,3 +127,8 @@ func rotate_picked_object(event):
 			static_body.rotate_x(deg_to_rad(event.relative.y * rotation_power))
 			static_body.rotate_y(deg_to_rad(event.relative.x * rotation_power))
 			
+func highlight_interactable_object():
+	var object_interaction = interaction.get_collider()
+	if object_interaction != null:
+		if object_interaction is Findable_Object:
+			object_interaction.highlight()
