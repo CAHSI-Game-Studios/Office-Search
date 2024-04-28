@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5vecfb35h3k8"]
-
-[ext_resource type="PackedScene" uid="uid://bnrqwavxtfljp" path="res://world/assets/keyboard_cahsi.glb" id="1_n88bn"]
-
-[node name="keyboard_cahsi" instance=ExtResource("1_n88bn")]

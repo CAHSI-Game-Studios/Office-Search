@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4rlauyc3vp7u"]
-
-[ext_resource type="PackedScene" uid="uid://nailcbro7oq" path="res://world/assets/Book.glb" id="1_vcaj3"]
-
-[node name="Book" instance=ExtResource("1_vcaj3")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:572c66dd66b03916c524858e0998e6719185dfe367c7da1e976647507b60226d
+size 48016

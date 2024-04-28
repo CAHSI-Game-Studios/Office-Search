@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpu4iafbkmpmp"]
-
-[ext_resource type="PackedScene" uid="uid://drqawidwqdek6" path="res://world/assets/start_room.glb" id="1_bnq8c"]
-
-[node name="start_room" instance=ExtResource("1_bnq8c")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:6ca9f8925877a63baf85d41213de2ea6a84be4bd7da5ccfb920a6833dc4cbf0f
+size 232

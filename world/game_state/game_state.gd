@@ -2,13 +2,13 @@ extends Node3D
 
 @onready var findable_objects = $FindableObjects
 @onready var check_list = $UI/CheckList
-
+@onready var chronmeter = $UI/Chronometer
 
 var findables_list:Array = []
 
 func _ready():
 	set_up_findable_objects()
-	
+	chronmeter.activate_timer()
 	check_list.checklist_setup(findables_list)
 
 
