@@ -102,6 +102,8 @@ func interact_object():
 		pick_object(object_interaction)
 	elif object_interaction != null and object_interaction is Findable_Object:
 		consume_object(object_interaction)
+	elif object_interaction != null and object_interaction is Drawer:
+		object_interaction.drawer_interaction()
 
 func consume_object(object_interaction:Findable_Object):
 	object_interaction.consume()
