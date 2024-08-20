@@ -60,4 +60,3 @@ func hide_children():
 			children.hide()
 func highlight():
 	timer = 0.05
-

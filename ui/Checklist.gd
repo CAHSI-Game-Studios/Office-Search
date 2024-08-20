@@ -5,7 +5,7 @@ extends Control
 @onready var item_list:ItemList = $ItemList
 var items
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("checklist_toggle"):
 		toggle_list()
 
