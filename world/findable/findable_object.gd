@@ -20,13 +20,13 @@ var mesh_material = preload("res://world/assets/transparency.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#for child in get_children():
-		#if child.get_class() == "MeshInstance3D":
-			#shader_reference = child.duplicate()
-			#child.add_child(shader_reference)
-	#shader_reference.scale = Vector3(1,1,1)
-	#shader_reference.set_surface_override_material(0,mesh_material)
-	#shader_reference.visible = false
+	for child in get_children():
+		if child.get_class() == "MeshInstance3D":
+			shader_reference = child.duplicate()
+			child.add_child(shader_reference)
+	shader_reference.scale = Vector3(1,1,1)
+	shader_reference.set_surface_override_material(0,mesh_material)
+	shader_reference.visible = false
 	
 	var scene = load("res://world/findable/findable_particles.tscn")
 	particles = scene.instantiate()
@@ -36,11 +36,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if timer <= 0:
-		#shader_reference.visible = false
-	#else:
-		#timer -= delta
-		#shader_reference.visible = true
+	if timer <= 0:
+		shader_reference.visible = false
+	else:
+		timer -= delta
+		shader_reference.visible = true
 		
 	if Input.is_action_just_pressed("test"):
 		consume()
@@ -58,6 +58,5 @@ func hide_children():
 		var children = self.get_child(index)
 		if not (children is GPUParticles3D):
 			children.hide()
-			
-#func highlight():
-	#timer = 0.05
+func highlight():
+	timer = 0.05

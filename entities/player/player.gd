@@ -61,7 +61,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	jump(delta)
 	movement(delta)
-	#highlight_interactable_object()
+	highlight_interactable_object()
 	pull_picked_object()
 	
 	move_and_slide()

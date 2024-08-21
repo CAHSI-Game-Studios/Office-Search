@@ -15,10 +15,6 @@ run/main_scene="res://world/prototype_worlds/prototype_world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-PlayerTime="*res://player_time.gd"
-
 [display]
 
 window/size/viewport_width=576
