@@ -17,3 +17,6 @@ func _process(delta):
 	
 func activate_timer():
 	timer_on = true
+
+func desactive_timer():
+	timer_on = false
