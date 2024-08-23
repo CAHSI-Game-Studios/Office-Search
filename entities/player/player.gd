@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # Export variables
-@export var sensitivity: float = .002
+@export var sensitivity: float = .008
 
 
 # Onready variables
@@ -12,6 +12,10 @@ extends CharacterBody3D
 
 @onready var joint: Generic6DOFJoint3D = $Neck/CameraPlayer/Generic6DOFJoint3D
 @onready var static_body: StaticBody3D = $Neck/CameraPlayer/StaticBody3D
+
+# Player Hand State
+@onready var hand_closed : Node3D = $Neck/CameraPlayer/handy_close_project
+@onready var hand_open : Node3D = $"Neck/CameraPlayer/handy_project(1)"
 
 # Player Movement 
 const SPEED: float = 5.0
@@ -36,6 +40,8 @@ var locked_rotation : bool = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hand_open.show()
+	hand_closed.hide()
 	
 func _unhandled_input(event):
 	
@@ -44,8 +50,12 @@ func _unhandled_input(event):
 	
 	if Input.is_action_pressed("l_click"):
 		interact_object()
+		hand_open.hide()
+		hand_closed.show()
 	else:
 		remove_picked_object()
+		hand_open.show()
+		hand_closed.hide()
 		
 	if Input.is_action_pressed("r_click"):
 		locked_rotation = true
