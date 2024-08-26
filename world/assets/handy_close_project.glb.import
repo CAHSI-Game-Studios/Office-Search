@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://y4uuah0p4akx"
-path="res://.godot/imported/ruler.glb-c534655d1fdb0d0a378ac229458ff79b.scn"
+uid="uid://bfpmhn6bltulq"
+path="res://.godot/imported/handy_close_project.glb-27cac5af10f2b8cff985b3f32fcc4f88.scn"
 
 [deps]
 
-source_file="res://world/assets/ruler.glb"
-dest_files=["res://.godot/imported/ruler.glb-c534655d1fdb0d0a378ac229458ff79b.scn"]
+source_file="res://world/assets/handy_close_project.glb"
+dest_files=["res://.godot/imported/handy_close_project.glb-27cac5af10f2b8cff985b3f32fcc4f88.scn"]
 
 [params]
 

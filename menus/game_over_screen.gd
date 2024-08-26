@@ -1,10 +1,14 @@
 extends Control
 
-@onready var time_finished : Label = $VBoxContainer/MarginContainer/Label
+@onready var label_container : VBoxContainer = $VBoxContainer/MarginContainer/VBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	time_finished.text = "TIME: " + str(PlayerTime.time)
+	var keys: Array = PlayerTime.times.keys()
+	keys.sort()
+	print(keys)
+	for key in keys:
+		create_new_time_label(key, PlayerTime.times[key])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,3 +16,10 @@ func _process(delta):
 
 func _on_play_again_pressed():
 		get_tree().change_scene_to_file("res://menus/StartScreen.tscn")
+		PlayerTime.time = 0
+		PlayerTime.times = {}
+
+func create_new_time_label(time, text):
+	var label = Label.new()
+	label.text = text + ": " + str("%10.2f"%time) + "s"
+	label_container.add_child(label)

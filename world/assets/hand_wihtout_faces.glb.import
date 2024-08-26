@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://y4uuah0p4akx"
-path="res://.godot/imported/ruler.glb-c534655d1fdb0d0a378ac229458ff79b.scn"
+uid="uid://dvuew0ty5ftwc"
+path="res://.godot/imported/hand_wihtout_faces.glb-09aaadc3efcb3b69678ec4418738c3f0.scn"
 
 [deps]
 
-source_file="res://world/assets/ruler.glb"
-dest_files=["res://.godot/imported/ruler.glb-c534655d1fdb0d0a378ac229458ff79b.scn"]
+source_file="res://world/assets/hand_wihtout_faces.glb"
+dest_files=["res://.godot/imported/hand_wihtout_faces.glb-09aaadc3efcb3b69678ec4418738c3f0.scn"]
 
 [params]
 

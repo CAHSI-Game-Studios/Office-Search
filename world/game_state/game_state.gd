@@ -21,8 +21,9 @@ func set_up_findable_objects():
 # The Findable Object will emit a signal before being consumed. 
 func _on_findable_object_consumed(name):
 	check_list.check_item(name)
-	if(findables_list.size() > 0):
+	if(findables_list.size() > 0 and findables_list.find(name) != -1):
 		findables_list.remove_at(findables_list.find(name)) 
+		PlayerTime.times[chronometer.time] = name
 	is_game_over()
 
 func is_game_over():

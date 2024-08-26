@@ -1,5 +1,5 @@
 class_name Findable_Object
-extends Node3D
+extends StaticBody3D
 
 signal object_consumed(name)
 
@@ -20,6 +20,11 @@ var mesh_material = preload("res://world/assets/transparency.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_collision_layer_value(1,false)
+	set_collision_layer_value(2,true)
+	
+	set_collision_mask_value(2,true)
+	
 	#for child in get_children():
 		#if child.get_class() == "MeshInstance3D":
 			#shader_reference = child.duplicate()
