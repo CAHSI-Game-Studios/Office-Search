@@ -4,11 +4,14 @@ extends StaticBody3D
 @export var animation : AnimationPlayer
 
 var drawer_state = true
+
 # Set the layers oncne the drawer is ready.
 func _ready():
+	# Layers
 	set_collision_layer_value(1,true)
 	set_collision_layer_value(2,true)
 	
+	# Masks
 	set_collision_mask_value(1,true)
 	
 func drawer_interaction():

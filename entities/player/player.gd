@@ -3,7 +3,6 @@ extends CharacterBody3D
 # Export variables
 @export var sensitivity: float = .008
 
-
 # Onready variables
 @onready var neck:Node3D = $Neck
 @onready var camera:Camera3D = $Neck/CameraPlayer
@@ -62,9 +61,6 @@ func _unhandled_input(event):
 		rotate_picked_object(event)
 	elif Input.is_action_just_released("r_click"):
 		locked_rotation = false
-	
-	if Input.is_action_just_pressed("pause"):
-		toggle_cursor()
 		
 
 func _physics_process(delta):
@@ -144,12 +140,6 @@ func rotate_picked_object(event):
 		if event is InputEventMouseMotion:
 			static_body.rotate_x(deg_to_rad(event.relative.y * rotation_power))
 			static_body.rotate_y(deg_to_rad(event.relative.x * rotation_power))
-
-func toggle_cursor():
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
 func highlight_interactable_object():
 	var object_interaction = interaction.get_collider()

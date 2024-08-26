@@ -12,7 +12,6 @@ func _ready():
 	set_up_findable_objects()
 	chronometer.activate_timer()
 	check_list.checklist_setup(findables_list)
-	
 
 func set_up_findable_objects():
 	for child_index in findable_objects.get_child_count():
@@ -31,4 +30,4 @@ func is_game_over():
 			chronometer.desactive_timer()
 			PlayerTime.time = chronometer.time
 			await get_tree().create_timer(4.0).timeout
-			get_tree().change_scene_to_file("res://menus/game_over_screen.tscn")
+			get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
