@@ -40,7 +40,7 @@ func _ready():
 	self.add_child(particles)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#if timer <= 0:
 		#shader_reference.visible = false
 	#else:

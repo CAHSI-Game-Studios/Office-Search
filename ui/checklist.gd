@@ -25,3 +25,6 @@ func check_item(text):
 		if item_list.get_item_text(index) == text:
 			item_list.remove_item(index)
 			break
+			
+func checklist_completed():
+	item_list.add_item("Checklist completed")

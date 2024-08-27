@@ -14,6 +14,9 @@ func _process(delta):
 	
 	var time_passed = "%02d : %02d" % [mins,secs]
 	label.text = time_passed
+
+func game_completed():
+	desactive_timer()
 	
 func activate_timer():
 	timer_on = true

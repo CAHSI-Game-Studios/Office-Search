@@ -1,4 +1,8 @@
+class_name Player
 extends CharacterBody3D
+
+# Signals 
+signal is_game_paused(_isPaused)
 
 # Export variables
 @export var sensitivity: float = .008
@@ -16,14 +20,13 @@ extends CharacterBody3D
 @onready var hand_closed : Node3D = $Neck/CameraPlayer/handy_close_project
 @onready var hand_open : Node3D = $"Neck/CameraPlayer/handy_project(1)"
 
+# Pause System 
+@onready var pause_system: Control = $PauseSystem
+
 # Player Movement 
 const SPEED: float = 5.0
 const JUMP_VELOCITY: float = 4.5
 const PULL_FORCE: float = 6.0
-
-
-# Control
-var pause: bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -43,7 +46,6 @@ func _ready():
 	hand_closed.hide()
 	
 func _unhandled_input(event):
-	
 	if not locked_rotation and event is InputEventMouseMotion:
 		camera_movement(event)
 	
@@ -146,3 +148,14 @@ func highlight_interactable_object():
 	if object_interaction != null:
 		if object_interaction is Findable_Object:
 			object_interaction.highlight()
+
+
+func _on_pause_system_is_game_paused(_isPaused):
+	if _isPaused:
+		set_physics_process(false)
+		set_process_unhandled_input(false)
+	else:
+		set_physics_process(true)
+		set_process_unhandled_input(true)
+		
+	is_game_paused.emit(_isPaused)
