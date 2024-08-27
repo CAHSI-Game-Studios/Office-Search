@@ -1,7 +1,7 @@
 extends Control
 
 @onready var label_container : VBoxContainer = $VBoxContainer/MarginContainer/VBoxContainer
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var keys: Array = PlayerTime.times.keys()
@@ -9,10 +9,6 @@ func _ready():
 	print(keys)
 	for key in keys:
 		create_new_time_label(key, PlayerTime.times[key])
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_play_again_pressed():
 		get_tree().change_scene_to_file("res://menus/StartScreen.tscn")
