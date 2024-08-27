@@ -7,7 +7,7 @@ extends Node3D
 var findables_list:Array = []
 
 func _ready():
-	PlayerTime.time = 0
+	PlayerData.total_time = 0
 	
 	set_up_findable_objects()
 	chronometer.activate_timer()
@@ -22,13 +22,13 @@ func _on_findable_object_consumed(item_name):
 	check_list.check_item(item_name)
 	if(findables_list.size() > 0 and findables_list.find(item_name) != -1):
 		findables_list.remove_at(findables_list.find(item_name)) 
-		PlayerTime.times[chronometer.time] = item_name
+		PlayerData.map_of_times[chronometer.time] = item_name
 	is_game_over()
 
 func is_game_over():
 	if (findables_list.size() == 0):
 			chronometer.game_completed()
-			PlayerTime.time = chronometer.time
+			PlayerData.total_time = chronometer.time
 			await get_tree().create_timer(4.0).timeout
 			get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
 
