@@ -4,10 +4,14 @@ extends Node3D
 @onready var check_list = $UI/CheckList
 @onready var chronometer = $UI/Chronometer
 
+@export var background_noice: AudioStreamPlayer
+
 var findables_list:Array = []
 
 func _ready():
 	PlayerData.total_time = 0
+	
+	background_noice.play()
 	
 	set_up_findable_objects()
 	chronometer.activate_timer()
