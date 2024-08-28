@@ -34,16 +34,13 @@ func _ready():
 	
 	self.add_child(particles)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	pass
 	#if timer <= 0:
 		#shader_reference.visible = false
 	#else:
 		#timer -= delta
 		#shader_reference.visible = true
-		
-	if Input.is_action_just_pressed("test"):
-		consume()
 
 # For now, because the findable objects are in place a not generated we can emit a call to the state game 
 # and then change the check list. 
