@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://de07ram6tteqs"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://de07ram6tteqs"]
+
+[ext_resource type="FontFile" uid="uid://brx58e7aoxrr" path="res://world/findable/assets/SinsGold.otf" id="1_cobsr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cybq8"]
 bg_color = Color(0.275464, 0.604104, 0.322878, 1)
@@ -37,9 +39,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [resource]
+default_font = ExtResource("1_cobsr")
+default_font_size = 35
 MenuButton/colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
 MenuButton/colors/font_outline_color = Color(0, 0, 0, 1)
-MenuButton/font_sizes/font_size = 20
+MenuButton/font_sizes/font_size = 35
 MenuButton/styles/focus = SubResource("StyleBoxFlat_cybq8")
 MenuButton/styles/hover = SubResource("StyleBoxFlat_bg3fi")
 MenuButton/styles/normal = SubResource("StyleBoxFlat_seip0")
