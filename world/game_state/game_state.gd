@@ -4,10 +4,14 @@ extends Node3D
 @onready var check_list = $UI/CheckList
 @onready var chronometer = $UI/Chronometer
 
+@export var background_noice: AudioStreamPlayer
+
 var findables_list:Array = []
 
 func _ready():
 	PlayerData.total_time = 0
+	
+	background_noice.play()
 	
 	set_up_findable_objects()
 	chronometer.activate_timer()
@@ -29,7 +33,7 @@ func is_game_over():
 	if (findables_list.size() == 0):
 			chronometer.game_completed()
 			PlayerData.total_time = chronometer.time
-			await get_tree().create_timer(4.0).timeout
+			await get_tree().create_timer(1.5).timeout
 			get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
 
 func _on_player_is_game_paused(_isPaused):

@@ -3,10 +3,6 @@ extends StaticBody3D
 
 signal object_consumed(name)
 
-# TO DO :
-# Al objeto instanciar, marcar el collision mask a 2
-
-
 var particles: GPUParticles3D
 var timer : float = 0
 
@@ -36,7 +32,6 @@ func _ready():
 	var scene = load("res://world/findable/findable_particles.tscn")
 	particles = scene.instantiate()
 	
-	
 	self.add_child(particles)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,9 +49,10 @@ func _process(_delta):
 # and then change the check list. 
 func consume():
 	hide_children()
+	set_collision_layer_value(2,false)
 	particles.emitting = true
 	object_consumed.emit(self.name)
-	get_tree().create_timer(3).connect("timeout",Callable(self,"queue_free"))
+	get_tree().create_timer(1.5).connect("timeout",Callable(self,"queue_free"))
 	
 func hide_children():
 	for index in self.get_child_count():

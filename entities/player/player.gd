@@ -23,6 +23,9 @@ signal is_game_paused(_isPaused)
 # Pause System 
 @onready var pause_system: Control = $PauseSystem
 
+# Sound Effects
+@onready var consume_object_sound : AudioStreamPlayer = $ConsumeObjectSoundEffect
+
 # Player Movement 
 const SPEED: float = 5.0
 const JUMP_VELOCITY: float = 4.5
@@ -110,6 +113,7 @@ func interact_object():
 		pick_object(object_interaction)
 	elif object_interaction != null and object_interaction is Findable_Object:
 		consume_object(object_interaction)
+		consume_object_sound.play()
 	elif object_interaction != null and object_interaction is Drawer:
 		object_interaction.drawer_interaction()
 
