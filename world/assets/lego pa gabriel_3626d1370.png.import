@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw1vhk88l47pv"
 path.s3tc="res://.godot/imported/lego pa gabriel_3626d1370.png-27d4a2d4efcb6886f81fe42cdf438088.s3tc.ctex"
+path.etc2="res://.godot/imported/lego pa gabriel_3626d1370.png-27d4a2d4efcb6886f81fe42cdf438088.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://world/assets/lego pa gabriel_3626d1370.png"
-dest_files=["res://.godot/imported/lego pa gabriel_3626d1370.png-27d4a2d4efcb6886f81fe42cdf438088.s3tc.ctex"]
+dest_files=["res://.godot/imported/lego pa gabriel_3626d1370.png-27d4a2d4efcb6886f81fe42cdf438088.s3tc.ctex", "res://.godot/imported/lego pa gabriel_3626d1370.png-27d4a2d4efcb6886f81fe42cdf438088.etc2.ctex"]
 
 [params]
 

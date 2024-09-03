@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd04i3j45xqgj"
 path.s3tc="res://.godot/imported/pexels-eberhardgross-707344.jpg-aded3f04eed2f16aeb2c670185afcce8.s3tc.ctex"
+path.etc2="res://.godot/imported/pexels-eberhardgross-707344.jpg-aded3f04eed2f16aeb2c670185afcce8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://world/office/pexels-eberhardgross-707344.jpg"
-dest_files=["res://.godot/imported/pexels-eberhardgross-707344.jpg-aded3f04eed2f16aeb2c670185afcce8.s3tc.ctex"]
+dest_files=["res://.godot/imported/pexels-eberhardgross-707344.jpg-aded3f04eed2f16aeb2c670185afcce8.s3tc.ctex", "res://.godot/imported/pexels-eberhardgross-707344.jpg-aded3f04eed2f16aeb2c670185afcce8.etc2.ctex"]
 
 [params]
 
