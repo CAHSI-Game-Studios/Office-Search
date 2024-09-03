@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddbfreses1gjg"
 path.s3tc="res://.godot/imported/libro1_pages.jpg-c1f112fb9166a9743afd67b39b041434.s3tc.ctex"
+path.etc2="res://.godot/imported/libro1_pages.jpg-c1f112fb9166a9743afd67b39b041434.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://world/assets/libro1_pages.jpg"
-dest_files=["res://.godot/imported/libro1_pages.jpg-c1f112fb9166a9743afd67b39b041434.s3tc.ctex"]
+dest_files=["res://.godot/imported/libro1_pages.jpg-c1f112fb9166a9743afd67b39b041434.s3tc.ctex", "res://.godot/imported/libro1_pages.jpg-c1f112fb9166a9743afd67b39b041434.etc2.ctex"]
 
 [params]
 

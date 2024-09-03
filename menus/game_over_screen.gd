@@ -12,7 +12,7 @@ func _ready():
 	keys.sort()
 	
 	# Create data directory
-	DirAccess.make_dir_absolute("user://data")
+	DirAccess.make_dir_recursive_absolute("user://data")
 	
 	var file_name = "user://data/" + Time.get_datetime_string_from_system()
 	print(file_name)

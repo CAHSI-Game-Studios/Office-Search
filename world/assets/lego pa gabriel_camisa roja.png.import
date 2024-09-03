@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctm1up0pivwiq"
 path.s3tc="res://.godot/imported/lego pa gabriel_camisa roja.png-62732626c59361c6d4fc3aa9dad91ade.s3tc.ctex"
+path.etc2="res://.godot/imported/lego pa gabriel_camisa roja.png-62732626c59361c6d4fc3aa9dad91ade.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://world/assets/lego pa gabriel_camisa roja.png"
-dest_files=["res://.godot/imported/lego pa gabriel_camisa roja.png-62732626c59361c6d4fc3aa9dad91ade.s3tc.ctex"]
+dest_files=["res://.godot/imported/lego pa gabriel_camisa roja.png-62732626c59361c6d4fc3aa9dad91ade.s3tc.ctex", "res://.godot/imported/lego pa gabriel_camisa roja.png-62732626c59361c6d4fc3aa9dad91ade.etc2.ctex"]
 
 [params]
 
