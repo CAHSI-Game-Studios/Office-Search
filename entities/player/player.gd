@@ -107,8 +107,6 @@ func camera_movement(event):
 
 func interact_object():
 	var object_interaction = interaction.get_collider()
-	if object_interaction != null:
-		print(object_interaction.name)
 	if object_interaction != null and object_interaction is Object_Interact:
 		pick_object(object_interaction)
 	elif object_interaction != null and object_interaction is Findable_Object:
