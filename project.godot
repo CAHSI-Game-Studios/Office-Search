@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Instituto Del Juego"
+config/name="Office_Search"
+config/description="Simulation video game made using Godot for a psychology research group, enabling them to test and demonstrate hypotheses on human cognitive abilities when performing tasks in a video game versus real-life scenarios."
 run/main_scene="res://menus/StartScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
