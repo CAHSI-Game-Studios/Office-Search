@@ -161,3 +161,6 @@ func _on_pause_system_is_game_paused(_isPaused):
 		set_process_unhandled_input(true)
 		
 	is_game_paused.emit(_isPaused)
+
+func getNeck() -> Node3D:
+	return $Neck

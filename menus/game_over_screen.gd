@@ -3,6 +3,10 @@ extends Control
 @onready var label : Label = $VBoxContainer/MarginContainer/Label
 
 func _ready():
+	var heatMapToAdd : HeatMap = preload("res://ui/positionHeatMap.tscn").instantiate()
+	$heatMapContainer.add_child(heatMapToAdd)
+	heatMapToAdd.position = Vector2.ZERO
+	heatMapToAdd.createMap(PlayerData.positions)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	label.text = "Total: " + str("%10.2f"%PlayerData.total_time) + "s"
@@ -39,3 +43,7 @@ func get_time_diff(keys, i):
 		return str("%12.3f"%keys[i]) + "s"
 	else:
 		return  str("%12.3f"%(abs(keys[i-1] - keys[i]))) + "s"
+
+
+func _on_positions_pressed() -> void:
+	$heatMapContainer.visible = !$heatMapContainer.visible

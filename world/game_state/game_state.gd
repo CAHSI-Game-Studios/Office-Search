@@ -3,7 +3,7 @@ extends Node3D
 @onready var findable_objects = $ReferenceToFindableObjects
 @onready var check_list = $UI/CheckList
 @onready var chronometer = $UI/Chronometer
-
+@onready var position_logger: PositionLogger = $PositionLogger
 @export var background_noice: AudioStreamPlayer
 
 var findables_list:Array = []
@@ -32,6 +32,7 @@ func _on_findable_object_consumed(item_name):
 func is_game_over():
 	if (findables_list.size() == 0):
 			chronometer.game_completed()
+			PlayerData.positions = position_logger.positions
 			PlayerData.total_time = chronometer.time
 			await get_tree().create_timer(1.5).timeout
 			get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
