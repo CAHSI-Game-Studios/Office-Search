@@ -7,6 +7,11 @@ signal is_game_paused(_isPaused)
 # Export variables
 @export var sensitivity: float = .008
 
+#control
+@export var stick_look_sensitivity: float = 2.3
+@export var stick_deadzone: float = 0.14     # ignore tiny stick jitter
+@export var dpad_rotate_speed: float = 90.0  # deg/sec for rotating held object with D-pad
+
 # Onready variables
 @onready var neck:Node3D = $Neck
 @onready var camera:Camera3D = $Neck/CameraPlayer
@@ -27,7 +32,7 @@ signal is_game_paused(_isPaused)
 @onready var consume_object_sound : AudioStreamPlayer = $ConsumeObjectSoundEffect
 
 # Player Movement 
-const SPEED: float = 5.0
+const SPEED: float = 3.0
 const JUMP_VELOCITY: float = 4.5
 const PULL_FORCE: float = 6.0
 
@@ -47,6 +52,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hand_open.show()
 	hand_closed.hide()
+	print("Joypads connected: ", Input.get_connected_joypads())
+
 	
 func _unhandled_input(event):
 	if not locked_rotation and event is InputEventMouseMotion:
@@ -76,6 +83,10 @@ func _physics_process(delta):
 	pull_picked_object()
 	
 	move_and_slide()
+	if not locked_rotation:
+		gamepad_look(delta)              # right-stick look
+	rotate_picked_object_with_dpad(delta) # D-pad rotate while grabbing
+
 
 func movement(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -161,3 +172,32 @@ func _on_pause_system_is_game_paused(_isPaused):
 		set_process_unhandled_input(true)
 		
 	is_game_paused.emit(_isPaused)
+# --- Right stick = camera look ---
+func gamepad_look(delta: float) -> void:
+	var joy_id := 0  # use first pad; expand to pick another if needed
+	var rx := Input.get_joy_axis(joy_id, JOY_AXIS_RIGHT_X)
+	var ry := Input.get_joy_axis(joy_id, JOY_AXIS_RIGHT_Y)
+
+	# deadzone
+	if abs(rx) < stick_deadzone: rx = 0.0
+	if abs(ry) < stick_deadzone: ry = 0.0
+
+	if rx != 0.0 or ry != 0.0:
+		neck.rotate_y(-rx * stick_look_sensitivity * delta)
+		camera.rotate_x(-ry * stick_look_sensitivity * delta)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+
+# --- D-pad = rotate held object (while grabbing/holding LT) ---
+func rotate_picked_object_with_dpad(delta: float) -> void:
+	if picked_object == null or not Input.is_action_pressed("l_click"):
+		return
+
+	# use your input actions so InputMap decides the device (D-pad / keys)
+	var yaw   := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")   # L/R
+	var pitch := Input.get_action_strength("ui_down")  - Input.get_action_strength("ui_up")     # U/D
+
+	if yaw != 0.0:
+		static_body.rotate_y(deg_to_rad(yaw * dpad_rotate_speed * delta))
+	if pitch != 0.0:
+		static_body.rotate_x(deg_to_rad(pitch * dpad_rotate_speed * delta))
