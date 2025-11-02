@@ -14,6 +14,7 @@ config/name="Office_Search"
 config/description="Simulation video game made using Godot for a psychology research group, enabling them to test and demonstrate hypotheses on human cognitive abilities when performing tasks in a video game versus real-life scenarios."
 run/main_scene="res://menus/StartScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]

@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var findable_objects = $ReferenceToFindableObjects
 @onready var check_list = $UI/CheckList
+@onready var player: Player = $Player
 @onready var chronometer = $UI/Chronometer
 
 @export var background_noice: AudioStreamPlayer
@@ -9,6 +10,8 @@ extends Node3D
 var findables_list:Array = []
 
 func _ready():
+	if player.replayInput:
+		$replayCamera.current = true
 	PlayerData.total_time = 0
 	
 	background_noice.play()
@@ -33,6 +36,7 @@ func is_game_over():
 	if (findables_list.size() == 0):
 			chronometer.game_completed()
 			PlayerData.total_time = chronometer.time
+			PlayerData.mapOfInputs = player.mapOfInputs
 			await get_tree().create_timer(1.5).timeout
 			get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
 

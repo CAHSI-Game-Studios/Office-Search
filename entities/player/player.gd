@@ -34,6 +34,15 @@ const PULL_FORCE: float = 6.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+# Replay system
+#	[timeOfInput : Input] 
+@export var replayInput : PlayerInputData
+var mapOfInputs : Dictionary = {
+	 # time : [input0, input1]
+}
+var timeInSeconds : float = 0
+var input_dir : Vector2 = Vector2.ZERO
+
 # Objects Interaction
 var picked_object: RigidBody3D = null
 var rotation_power: float = 0.05
@@ -47,8 +56,15 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hand_open.show()
 	hand_closed.hide()
+	if replayInput:
+		set_process_unhandled_input(false)
 	
 func _unhandled_input(event):
+	if mapOfInputs.has(timeInSeconds):
+		mapOfInputs[timeInSeconds].append(event)
+	else:
+		var arrayToAdd : Array[InputEvent] = [event]
+		mapOfInputs[timeInSeconds] = arrayToAdd
 	if not locked_rotation and event is InputEventMouseMotion:
 		camera_movement(event)
 	
@@ -60,16 +76,52 @@ func _unhandled_input(event):
 		remove_picked_object()
 		hand_open.show()
 		hand_closed.hide()
-		
+	input_dir = Input.get_vector("left", "right", "up", "down")
 	if Input.is_action_pressed("r_click"):
 		locked_rotation = true
 		rotate_picked_object(event)
 	elif Input.is_action_just_released("r_click"):
 		locked_rotation = false
 		
-
+func simulateInput(event : InputEvent):
+	input_dir = Vector2.ZERO
+	if event.is_action_pressed("left"):
+		input_dir[0] += -1
+	if event.is_action_pressed("right"):
+		input_dir[0] += 1
+	if event.is_action_pressed("up"):
+		input_dir[1] += -1
+	if event.is_action_pressed("down"):
+		input_dir[1] += 1
+	if not locked_rotation and event is InputEventMouseMotion:
+		camera_movement(event)
+	if  event.is_action_pressed("l_click"):
+		interact_object()
+		hand_open.hide()
+		hand_closed.show()
+	else:
+		remove_picked_object()
+		hand_open.show()
+		hand_closed.hide()
+	if event.is_action_pressed("r_click"):
+		locked_rotation = true
+		rotate_picked_object(event)
+	elif event.is_action_released("r_click"):
+		locked_rotation = false
 func _physics_process(delta):
-	# Add the gravity.
+	timeInSeconds += delta
+	
+	# Check if the key at the bottom of the map is smaller than the time in seconds
+	# Get the array corresponding to the key, erase that entry from the map, simulate input
+	if replayInput:
+		var inputMap : Dictionary = replayInput.inputMap
+		if inputMap.keys().size() != 0:
+			if inputMap.keys()[0] <= timeInSeconds:
+				var tempVar : float  = inputMap.keys()[0]
+				print(tempVar)
+				for inputEvent in inputMap[inputMap.keys()[0]]:
+					simulateInput(inputEvent)
+				inputMap.erase(inputMap.keys()[0])
 	jump(delta)
 	movement(delta)
 	#highlight_interactable_object()
@@ -80,7 +132,7 @@ func _physics_process(delta):
 func movement(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "up", "down")
+	#var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -155,9 +207,10 @@ func highlight_interactable_object():
 func _on_pause_system_is_game_paused(_isPaused):
 	if _isPaused:
 		set_physics_process(false)
-		set_process_unhandled_input(false)
+		if not replayInput:
+			set_process_unhandled_input(false)
 	else:
 		set_physics_process(true)
-		set_process_unhandled_input(true)
-		
+		if not replayInput:
+			set_process_unhandled_input(true)
 	is_game_paused.emit(_isPaused)

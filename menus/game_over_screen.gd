@@ -3,6 +3,10 @@ extends Control
 @onready var label : Label = $VBoxContainer/MarginContainer/Label
 
 func _ready():
+	var playerInputData : PlayerInputData = PlayerInputData.new()
+	playerInputData.inputMap = PlayerData.mapOfInputs
+	ResourceSaver.save(playerInputData, "res://entities/player/inputData/inputData.tres")
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	label.text = "Total: " + str("%10.2f"%PlayerData.total_time) + "s"
