@@ -34,7 +34,7 @@ func is_game_over():
 			chronometer.game_completed()
 			PlayerData.total_time = chronometer.time
 			await get_tree().create_timer(1.5).timeout
-			get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
+			get_tree().change_scene_to_file("res://menus/DataCollectionEyetracker.tscn")
 
 func _on_player_is_game_paused(_isPaused):
 	if(_isPaused):

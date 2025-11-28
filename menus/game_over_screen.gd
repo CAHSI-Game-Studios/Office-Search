@@ -33,7 +33,6 @@ func create_new_time_label(time, text):
 	return full_text
 	
 func get_time_diff(keys, i):
-	
 	if(i == 0):
 		return str("%12.3f"%keys[i]) + "s"
 	else:
