@@ -1,13 +1,11 @@
 extends Control
 
 @onready var label : Label = $VBoxContainer/MarginContainer/Label
-const ETL_DATA_PATH = "user://ETL_data.csv"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	label.text = "Total: " + str("%10.2f"%PlayerData.total_time) + "s"
-	
 	
 	var keys: Array = PlayerData.map_of_times.keys()
 	keys.sort()
