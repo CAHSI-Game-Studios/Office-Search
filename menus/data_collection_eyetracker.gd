@@ -17,22 +17,7 @@ const DATA_FILE_PATH = "user://game_data.csv"
 @onready var TPTRuler: TextEdit = $Prev/TPTRuler
 
 var session_id = ""
-#
-#var map_of_times_ET : Dictionary = {}
-#
-#var session_id = 0 # Unique ID for the current play session
-#
-#func _ready():
-	## Initialize session ID when the game starts
-	#session_id = PlayerData.player_name
-	#map_of_times_ET["folder"] = TTFFolder.text + " " + TPTFolder.text
-	#map_of_times_ET["calculator"] = TTFCalc.text + " " + TPTCalc.text
-	#map_of_times_ET["pen"] = TTFPen.text + " " + TPTPen.text
-	#map_of_times_ET["glasses"] = TTFGlasses.text + " " + TPTGlasses.text
-	#map_of_times_ET["toy"] = TTFToy.text + " " + TPTToy.text
-	#map_of_times_ET["book"] = TTFBook.text + " " + TPTBook.text
-	#map_of_times_ET["ruler"] = TTFRuler.text + " " + TPTFolder.text
-#
+
 # Define the dictionary to hold the new data (Folder paths, etc.)
 var map_of_times_ET: Dictionary = {}
 
@@ -73,7 +58,7 @@ func write_session_data_to_csv():
 			"ET_TTF_Toy", "ET_TPT_Toy", "ET_TTF_Book", "ET_TPT_Book", "ET_TTF_Ruler", "ET_TPT_Ruler",
 			"ET_Total_Time_s",
 			]
-		file.store_line(header_parts.join(","))
+		file.store_line(",".join(header_parts))
 		
 	# 3. CONSTRUCT BASE METADATA ROW
 	# These values are constant for the entire session and will be repeated
@@ -98,7 +83,7 @@ func write_session_data_to_csv():
 	for i in range(len(keys)):
 		# Calculate time-specific data
 		# NOTE: Using the raw time values here, create_new_time_label seems redundant for CSV
-		var object_time_since_start = str("%12.3f"%PlayerData.map_of_times[keys[i]])
+		var object_time_since_start = str("%12.3f" %keys[i])
 		var time_difference = get_time_diff(keys, i)
 		
 		# Construct the final CSV line: BASE METADATA + TIME DATA
@@ -128,6 +113,6 @@ func _on_button_pressed():
 	map_of_times_ET["book"] = TTFBook.text + " " + TPTBook.text
 	map_of_times_ET["ruler"] = TTFRuler.text + " " + TPTFolder.text
 	
-	
+	write_session_data_to_csv()
 	
 	get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")

@@ -29,7 +29,7 @@ func _on_findable_object_consumed(item_name):
 		PlayerData.map_of_times[chronometer.time] = item_name
 	is_game_over()
 
-func is_game_over():
+func is_game_over() -> void:
 	if (findables_list.size() == 0):
 			chronometer.game_completed()
 			PlayerData.total_time = chronometer.time
