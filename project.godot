@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerData="*res://globals/player_data.gd"
+EyeLogger="*res://globals/eye_logger.gd"
 
 [display]
 
