@@ -143,20 +143,20 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file("res://menus/GameOverScreen.tscn")
 
 
-func write_session_data_to_csv():
+func write_session_data_to_csv() -> void:
 	
 	# 1. CHECK IF FILE EXISTS (MUST happen BEFORE opening)
 	var file_exists = FileAccess.file_exists(DATA_FILE_PATH)
 	
-	var file: FileAccess # Declare the file variable here
-	
-	# Decide which mode to open with based on existence
+	var file_mode: int
 	if file_exists:
-		# File exists: Open for reading/writing, keeping content. Cursor starts at 0.
-		file = FileAccess.open(DATA_FILE_PATH, FileAccess.READ_WRITE)
+		# If file exists, open in READ_WRITE mode (which will also let us seek_end)
+		file_mode = FileAccess.READ_WRITE
 	else:
-		# File does not exist: Open for writing (will create it). Cursor starts at 0.
-		file = FileAccess.open(DATA_FILE_PATH, FileAccess.WRITE)
+		 # 🟢 CRITICAL FIX: If file does NOT exist, explicitly use WRITE mode to create it.
+		file_mode = FileAccess.WRITE
+		
+	var file = FileAccess.open(DATA_FILE_PATH, file_mode)
 		
 	if not file:
 		print("Error: Could not open/create CSV file at:", DATA_FILE_PATH)
@@ -166,7 +166,7 @@ func write_session_data_to_csv():
 	
 	# 2. HEADER LOGIC
 	# Only write header if the file did NOT exist before we opened it.
-	if not file_exists:
+	if file_exists == false:
 		print("Did not find file, writing header")
 		var header_parts = [
 			 # ... your full header list ...
@@ -181,7 +181,8 @@ func write_session_data_to_csv():
 			"TPT_Toy", "TPT_Book", "TPT_Ruler",
             "Total_Time_s"
 		]
-		file.store_line(",".join(header_parts))
+		var header_lines = ",".join(header_parts)
+		file.store_line(header_lines)
 	
 	# 3. CONSTRUCT BASE METADATA ROW (Kept as is)
 	var base_data_parts: Array = [
